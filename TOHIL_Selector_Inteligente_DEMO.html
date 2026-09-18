@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOHIL · Selector inteligente de revisores · Demo</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f5f6f8;margin:0;color:#24303a}
+.header{background:#123b63;color:white;padding:28px 32px}
+.header small{letter-spacing:1px;opacity:.85}
+.header h1{margin:8px 0 0;font-size:28px}
+.container{max-width:1050px;margin:35px auto;padding:0 20px}
+.card{background:white;border:1px solid #ddd;border-radius:10px;padding:24px;margin-bottom:22px;box-shadow:0 2px 8px #0000000b}
+label{font-weight:700;display:block;margin-bottom:8px}
+textarea{width:100%;min-height:150px;box-sizing:border-box;border:1px solid #bbb;border-radius:7px;padding:12px;font-size:15px}
+button{background:#123b63;color:white;border:0;border-radius:7px;padding:12px 18px;font-weight:700;cursor:pointer;margin-top:14px}
+.note{font-size:13px;color:#65727e;margin-top:12px}
+.result{border-top:1px solid #ddd;padding:18px 0}
+.badge{display:inline-block;border:1px solid #c9d2db;border-radius:20px;padding:4px 9px;font-size:12px;margin:3px}
+.demo{background:#fff7df;border-left:4px solid #c58a00;padding:14px;margin-bottom:20px}
+</style>
+</head>
+<body>
+<div class="header">
+  <small>REVISTA TOHIL · FACULTAD DE DERECHO · UADY</small>
+  <h1>Selector inteligente de revisores</h1>
+</div>
+<div class="container">
+  <div class="demo">
+    <strong>Demostración pública.</strong> Esta versión es únicamente ilustrativa y no contiene la matriz real de personas revisoras ni datos personales.
+  </div>
+
+  <div class="card">
+    <label for="manuscrito">Título, resumen y palabras clave del manuscrito</label>
+    <textarea id="manuscrito" placeholder="Ejemplo: Inteligencia artificial y derechos humanos: desafíos de la justicia algorítmica..."></textarea>
+    <button onclick="buscar()">Buscar revisores idóneos</button>
+    <div class="note">La versión editorial completa utiliza la base maestra institucional y considera pertinencia temática, áreas, metodología, disponibilidad y conflictos de interés.</div>
+  </div>
+
+  <div class="card" id="resultados">
+    <strong>Resultados de demostración</strong>
+    <p class="note">Introduzca información del manuscrito y pulse “Buscar revisores idóneos”.</p>
+  </div>
+</div>
+
+<script>
+function buscar(){
+  const texto=document.getElementById('manuscrito').value.trim();
+  const r=document.getElementById('resultados');
+  if(!texto){r.innerHTML='<strong>Resultados de demostración</strong><p class="note">Escriba primero información del manuscrito.</p>';return;}
+  r.innerHTML=`
+    <strong>Coincidencias simuladas</strong>
+    <div class="result"><b>Perfil demostrativo A</b><br>
+      <span class="badge">IA y Derecho</span><span class="badge">Derechos humanos</span><span class="badge">Metodología jurídica</span>
+      <p class="note">Coincidencia temática: alta · Resultado únicamente ilustrativo.</p></div>
+    <div class="result"><b>Perfil demostrativo B</b><br>
+      <span class="badge">Inteligencia artificial</span><span class="badge">Ciencias sociales</span><span class="badge">Ética</span>
+      <p class="note">Coincidencia temática: media-alta · Resultado únicamente ilustrativo.</p></div>
+    <div class="result"><b>Perfil demostrativo C</b><br>
+      <span class="badge">Tecnología y Derecho</span><span class="badge">Protección de datos</span><span class="badge">Investigación cualitativa</span>
+      <p class="note">Coincidencia temática: media · Resultado únicamente ilustrativo.</p></div>`;
+}
+</script>
+</body>
+</html>
